@@ -1,0 +1,74 @@
+// Styles
+
+$width: 250px;
+$roundedBorder: 10px;
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    flex-direction: $direction;
+}
+
+#root {
+    width: 100%;
+    display: flex;
+}
+
+//  STYLING FOR HEADER
+
+.logo {
+    height: 125px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navcomp {
+    padding-left: 1rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 12pt;
+    color: black;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 50px;
+    margin: 0 auto;
+}
+
+// STYLING FOR BANNER
+
+.center {
+    display: block;
+    // margin-left: auto;
+    // margin-right: auto;
+    margin: 30px auto;
+    width: 85%;
+}
+
+
+// STYLING FOR ARTCARD
+
+img.design {
+    width: $width;
+    border-radius: $roundedBorder;
+}
+
+div.card {
+    @include flexCenter(column); 
+    border: solid 1px lightgrey;
+    border-radius: $roundedBorder;
+    width: $width;
+    height: 100%;
+    margin: 25px 12.5px 12.5px 25px;
+}
+
+.cardGrid {
+    @include flexCenter(row);
+    flex-wrap: wrap;
+}
