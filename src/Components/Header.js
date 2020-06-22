@@ -1,24 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import {InstagramOutlined} from '@ant-design/icons'
 import {BehanceOutlined} from '@ant-design/icons'
-
 
 class Header extends React.Component {
 
     render() {
         return (
-            <div className="header" >
-                <img className="logo" src={this.props.logo} />
-                <nav className="navbar" >
-                    <a className="navcomp">Work</a>
-                    <a className="navcomp">About</a>
-                    <a className="navcomp">Contact</a>
-                    <a className="navcomp" href="https://www.behance.net/rebekahdejong">
-                        <BehanceOutlined />
-                    </a>
-                    <a className="navcomp" href="https://www.instagram.com/de.jonge.maker/?hl=en">
-                        <InstagramOutlined />
-                    </a>
+            <div>
+                <nav>
+                    <img className="logo" src={this.props.logo} alt="logo" />
+                    <ul className ="nav-links">
+                        <Link className="link" to="/">
+                            <li>Work</li>
+                        </Link>
+                        <Link className="link" to="/about">
+                            <li>About</li>
+                        </Link>
+                        <Link className="link" to="/contact">
+                            <li>Contact</li>
+                        </Link>
+                            <BehanceOutlined className="link" href="https://www.behance.net/rebekahdejong" />
+                            <InstagramOutlined className="link" href="https://www.instagram.com/de.jonge.maker/?hl=en" />
+                    </ul>
                 </nav>
             </div>
         )
