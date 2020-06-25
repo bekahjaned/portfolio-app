@@ -1,6 +1,5 @@
 // Styles
 
-
 $width: 250px;
 $roundedBorder: 10px;
 
@@ -24,19 +23,19 @@ $roundedBorder: 10px;
     list-style: none;
 }
 
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 20vh;
-}
-
 .link {
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
     margin-right: 8%;
     text-decoration: none;
     color: black;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-height: 25vh;
 }
 
 
