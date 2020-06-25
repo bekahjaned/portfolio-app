@@ -68,3 +68,22 @@ div.card {
     @include flexCenter(row);
     flex-wrap: wrap;
 }
+
+// STYLING FOR CONTACT PAGE
+.hero {
+    font-size: 100px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+}
+
+.form {
+    font-family: 'Rubik', sans-serif;
+    @include flexCenter(column);
+    align-items: center;
+}
+
+.formGroup {
+    @include flexCenter(column);
+    padding-bottom: 10px;
+    align-items: flex-start;
+}
