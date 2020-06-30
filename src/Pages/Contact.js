@@ -1,71 +1,121 @@
-import React from 'react'
+import React from "react";
 
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import Axios from "axios";
 
 class Contact extends React.Component {
-    constructor(props){
-        super(props)
+  state = {
+    name: "",
+    email: "",
+    message: "",
+    sent: false,
+  };
 
-        this.state = {
-            name: '',
-            email: '',
-            message: '',
-            disabled: false,
-            emailSent: null
-        }
-    }
+  handleName = (e) => {
+    this.setState({
+      name: e.target.value,
+    });
+  };
 
-    handleChange = (event) => {
+  handleEmail = (e) => {
+    this.setState({
+      email: e.target.value,
+    });
+  };
 
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-        
-        this.setState({
-            [name]: value
-        })
-    }
+  handleMessage = (e) => {
+    this.setState({
+      message: e.target.value,
+    });
+  };
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+  formSubmit = (e) => {
+    e.preventDefault();
 
-        this.setState({
-            disabled: true
-        })
-    }
+    let data = {
+      name: this.state.name,
+      email: this.state.email,
+      message: this.state.message,
+    };
 
+    Axios.post("/api/forma", data)
+      .then((res) => {
+        this.setState(
+          {
+            sent: true,
+          },
+          this.resetForm()
+        );
+      })
+      .catch(() => {
+        console.log("Message not sent");
+      });
+  };
 
-    render() {
-        return (
-            <div className="form">
-                <h1 className="hero">Let's Talk</h1>
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Group className="formGroup">
-                        <Form.Label htmlFor="full-name">Full Name</Form.Label>
-                        <Form.Control id="full-name" name="name" type="text" value={this.state.name} onChange={this.handleChange} />
-                    </Form.Group>
-                    
-                    <Form.Group className="formGroup">
-                        <Form.Label htmlFor="email">Email</Form.Label>
-                        <Form.Control id="email" name="email" type="email" value={this.state.email} onChange={this.handleChange} />
-                    </Form.Group>
+  resetForm = () => {
+    this.setState({
+      name: "",
+      email: "",
+      message: "",
+    });
 
-                    <Form.Group className="formGroup">
-                        <Form.Label htmlFor="message">Message</Form.Label>
-                        <Form.Control id="message" name="message" as="textarea" rows="4" value={this.state.message} onChange={this.handleChange} />
-                    </Form.Group>
+    setTimeout(() => {
+      this.setState({
+        sent: false,
+      });
+    }, 3000);
+  };
 
-                    <Button className="d-inline-block" variant="primary" type="submit" disabled={this.state.disabled}>
-                        Send
-                    </Button>
+  render() {
+    return (
+      <div className="container">
+        <h1 className="hero">Let's Talk</h1>
+        <form onSubmit={this.formSubmit}>
+          <div className="singleItem">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleName}
+              placeholder="Enter your name..."
+            />
+          </div>
 
-                    {this.state.emailSent === true && <p className="d-inline success-msg">Email Sent</p>}
-                    {this.state.emailSent === false && <p className="d-inline err-msg">Email Not Sent</p>}
-                </Form>
-            </div>
-        )
-    }
+          <div className="singleItem">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleEmail}
+              placeholder="Enter your email..."
+              required
+            />
+          </div>
+
+          <div className="textArea singleItem">
+            <label htmlFor="message">Message</label>
+            <textarea
+              name="message"
+              value={this.state.message}
+              cols="30"
+              rows="5"
+              placeholder="Enter your message..."
+              onChange={this.handleMessage}
+            />
+          </div>
+
+          <div className={this.state.sent ? "msg msgAppear" : "msg"}>
+            Message has been sent
+          </div>
+
+          <div className="btn">
+            <button type="button">Submit</button>
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
 
-export default Contact
+export default Contact;
