@@ -15,7 +15,15 @@
   list-style: none;
 }
 
-nav {
+.link {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  margin-right: 8%;
+  text-decoration: none;
+  color: black;
+}
+
+.headerContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,15 +32,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 20vh;
-}
-
-.link {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 400;
-  margin-right: 8%;
-  text-decoration: none;
-  color: black;
+  max-height: 25vh;
 }
 
 .center {
