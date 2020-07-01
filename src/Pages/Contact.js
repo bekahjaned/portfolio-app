@@ -1,16 +1,20 @@
 import React from "react";
 
+import Hero from "../Components/Hero";
 import Form from "../Components/Form";
 
 class Contact extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      heroText: "Let's talk",
+    };
   }
 
   render() {
     return (
       <div className="container">
-        <h1 className="hero">Let's Talk</h1>
+        <Hero text={this.state.heroText} />
         <Form />
       </div>
     );
