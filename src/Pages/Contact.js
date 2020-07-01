@@ -3,12 +3,15 @@ import React from "react";
 import Axios from "axios";
 
 class Contact extends React.Component {
-  state = {
-    name: "",
-    email: "",
-    message: "",
-    sent: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      message: "",
+      sent: false,
+    };
+  }
 
   handleName = (e) => {
     this.setState({
