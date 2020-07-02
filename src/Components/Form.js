@@ -1,5 +1,7 @@
 import React from "react";
 
+import InputItem from "../Components/InputItem";
+
 import Axios from "axios";
 
 class Form extends React.Component {
@@ -72,28 +74,28 @@ class Form extends React.Component {
     return (
       <div>
         <form onSubmit={this.formSubmit}>
-          <div className="singleItem">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleName}
-              placeholder="Enter your name..."
-            />
-          </div>
+          <InputItem
+            htmlFor="name"
+            label="Name"
+            type="text"
+            name="name"
+            value={this.state.name}
+            onChange={() => this.handleName()}
+            // onChange={this.handleName}
+            placeholder="Enter your name..."
+          />
 
-          <div className="singleItem">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleEmail}
-              placeholder="Enter your email..."
-              required
-            />
-          </div>
+          <InputItem
+            htmlFor="email"
+            label="Email"
+            type="email"
+            name="email"
+            value={this.state.email}
+            onChange={() => this.handleEmail()}
+            // onChange={this.handleEmail}
+            placeholder="Enter your email..."
+            // required
+          />
 
           <div className="textArea singleItem">
             <label htmlFor="message">Message</label>
