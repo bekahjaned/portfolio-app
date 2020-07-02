@@ -1,6 +1,7 @@
 import React from "react";
 
 import InputItem from "../Components/InputItem";
+import MessageInput from "../Components/MessageInput";
 
 import Axios from "axios";
 
@@ -97,17 +98,17 @@ class Form extends React.Component {
             // required
           />
 
-          <div className="textArea singleItem">
-            <label htmlFor="message">Message</label>
-            <textarea
-              name="message"
-              value={this.state.message}
-              cols="30"
-              rows="5"
-              placeholder="Enter your message..."
-              onChange={this.handleMessage}
-            />
-          </div>
+          <MessageInput
+            htmlFor="message"
+            label="Message"
+            name="message"
+            value={this.state.message}
+            cols="30"
+            rows="5"
+            onChange={() => this.handleMessage()}
+            // onChange={this.handleMessage}
+            placeholder="Enter your message"
+          />
 
           <div className={this.state.sent ? "msg msgAppear" : "msg"}>
             Message has been sent
