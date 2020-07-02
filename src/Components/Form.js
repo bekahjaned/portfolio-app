@@ -2,6 +2,7 @@ import React from "react";
 
 import InputItem from "../Components/InputItem";
 import MessageInput from "../Components/MessageInput";
+import SubmitButton from "../Components/SubmitButton";
 
 import Axios from "axios";
 
@@ -114,9 +115,7 @@ class Form extends React.Component {
             Message has been sent
           </div>
 
-          <div className="btn">
-            <button type="button">Submit</button>
-          </div>
+          <SubmitButton label="Submit" />
         </form>
       </div>
     );
