@@ -82,8 +82,7 @@ class Form extends React.Component {
             type="text"
             name="name"
             value={this.state.name}
-            onChange={() => this.handleName()}
-            // onChange={this.handleName}
+            onChange={this.handleName.bind(this)}
             placeholder="Enter your name..."
           />
 
@@ -93,10 +92,8 @@ class Form extends React.Component {
             type="email"
             name="email"
             value={this.state.email}
-            onChange={() => this.handleEmail()}
-            // onChange={this.handleEmail}
+            onChange={this.handleEmail.bind(this)}
             placeholder="Enter your email..."
-            // required
           />
 
           <MessageInput
@@ -106,8 +103,7 @@ class Form extends React.Component {
             value={this.state.message}
             cols="30"
             rows="5"
-            onChange={() => this.handleMessage()}
-            // onChange={this.handleMessage}
+            onChange={this.handleMessage.bind(this)}
             placeholder="Enter your message"
           />
 
