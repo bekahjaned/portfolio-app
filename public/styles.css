@@ -16,7 +16,7 @@
 }
 
 .link {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 400;
   margin-right: 8%;
   text-decoration: none;
@@ -77,5 +77,101 @@ div.card {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+.hero {
+  font-size: 80px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.container {
+  display: block;
+  margin: 50px auto;
+  width: 80%;
+  font-family: "Rubik", sans-serif;
+}
+
+.container form {
+  width: 100%;
+  padding: 10px;
+}
+
+.container label {
+  display: block;
+  letter-spacing: 0.1rem;
+  margin-bottom: 3px;
+}
+
+.container input,
+.container textarea {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid lightgray;
+}
+
+.container input:focus,
+.container textarea:focus {
+  -webkit-box-shadow: 1px 1px 4px 1px lightgray;
+          box-shadow: 1px 1px 4px 1px lightgray;
+  outline: none;
+}
+
+.singleItem {
+  margin: 10px 0;
+}
+
+textarea {
+  font-family: "Rubik", sans-serif;
+}
+
+.btn {
+  width: 100%;
+  text-align: center;
+}
+
+.btn button {
+  width: 150px;
+  letter-spacing: 0.1rem;
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.btn button:hover {
+  cursor: pointer;
+}
+
+.msg {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  letter-spacing: 0.1rem;
+  width: 340px;
+  padding: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #5cb85c;
+  display: none;
+}
+
+.msgAppear {
+  display: block;
+}
+
+@media screen and (min-width: 664px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 986px) {
+  .container {
+    width: 40%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

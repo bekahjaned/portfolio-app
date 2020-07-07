@@ -1,17 +1,15 @@
-import React from 'react'
-import Nav from '../Components/Nav'
-
+import React from "react";
+import Nav from "../Components/Nav";
 
 class Header extends React.Component {
-
-    render() {
-        return (
-            <div className="headerContainer">
-                <img className="logo" src={this.props.logo} alt="logo" />
-                <Nav />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="headerContainer">
+        <img className="logo" src={this.props.logo} alt="logo" />
+        <Nav />
+      </div>
+    );
+  }
 }
 
-export default Header
+export default Header;

@@ -4,67 +4,159 @@ $width: 250px;
 $roundedBorder: 10px;
 
 @mixin flexCenter($direction) {
-    display: flex;
-    justify-content: center;
-    flex-direction: $direction;
+  display: flex;
+  justify-content: center;
+  flex-direction: $direction;
 }
-
 
 //  STYLING FOR HEADER
 
 .logo {
-    height: 15vh;
+  height: 15vh;
 }
 
 .nav-links {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
 }
 
 .link {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 400;
-    margin-right: 8%;
-    text-decoration: none;
-    color: black;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  margin-right: 8%;
+  text-decoration: none;
+  color: black;
 }
 
 .headerContainer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-height: 25vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-height: 25vh;
 }
-
 
 // STYLING FOR BANNER
 
 .center {
-    display: block;
-    margin: 30px auto;
-    width: 85%;
+  display: block;
+  margin: 30px auto;
+  width: 85%;
 }
-
 
 // STYLING FOR ARTCARD
 
 img.design {
-    width: $width;
-    border-radius: $roundedBorder;
+  width: $width;
+  border-radius: $roundedBorder;
 }
 
 div.card {
-    @include flexCenter(column); 
-    border: solid 1px lightgrey;
-    border-radius: $roundedBorder;
-    width: $width;
-    height: 100%;
-    margin: 25px 12.5px 12.5px 25px;
+  @include flexCenter(column);
+  border: solid 1px lightgrey;
+  border-radius: $roundedBorder;
+  width: $width;
+  height: 100%;
+  margin: 25px 12.5px 12.5px 25px;
 }
 
 .cardGrid {
-    @include flexCenter(row);
-    flex-wrap: wrap;
+  @include flexCenter(row);
+  flex-wrap: wrap;
+}
+
+// STYLING FOR CONTACT PAGE
+.hero {
+  font-size: 80px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 0;
+}
+.container {
+  display: block;
+  margin: 50px auto;
+  width: 80%;
+  font-family: "Rubik", sans-serif;
+}
+
+.container form {
+  width: 100%;
+  padding: 10px;
+}
+
+.container label {
+  display: block;
+  letter-spacing: 0.1rem;
+  margin-bottom: 3px;
+}
+
+.container input,
+.container textarea {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid lightgray;
+}
+
+.container input:focus,
+.container textarea:focus {
+  box-shadow: 1px 1px 4px 1px lightgray;
+  outline: none;
+}
+
+.singleItem {
+  margin: 10px 0;
+}
+
+textarea {
+  font-family: "Rubik", sans-serif;
+}
+
+.btn {
+  width: 100%;
+  text-align: center;
+}
+
+.btn button {
+  width: 150px;
+  letter-spacing: 0.1rem;
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.btn button:hover {
+  cursor: pointer;
+}
+
+.msg {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  letter-spacing: 0.1rem;
+  width: 340px;
+  padding: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #5cb85c;
+  display: none;
+}
+
+.msgAppear {
+  display: block;
+}
+
+@media screen and (min-width: 664px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 986px) {
+  .container {
+    width: 40%;
+  }
 }
