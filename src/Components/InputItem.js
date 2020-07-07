@@ -5,8 +5,6 @@ class InputItem extends React.Component {
     super(props);
   }
 
-  //   left off: making this component,
-  //   need to add all the attributes as props!
   render() {
     return (
       <div className="singleItem">
@@ -17,6 +15,7 @@ class InputItem extends React.Component {
           value={this.props.value}
           onChange={this.props.onChange}
           placeholder={this.props.placeholder}
+          required
         />
       </div>
     );
