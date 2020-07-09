@@ -174,4 +174,31 @@ textarea {
     width: 40%;
   }
 }
+
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 15px auto;
+}
+
+.about img {
+  height: 250px;
+  border-radius: 10px;
+}
+
+.aboutText {
+  margin-left: 20px;
+}
+
+.aboutText h3 {
+  font-weight: 500;
+}
+
+.aboutText p {
+  font-size: 10pt;
+}
 /*# sourceMappingURL=styles.css.map */
