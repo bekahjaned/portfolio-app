@@ -1,8 +1,8 @@
 import React from "react";
 
-import Hero from "../Components/Hero";
+import Hero from "@Components/Hero";
 
-import Logo from "../images/dejongemaker-logo.png";
+import Logo from "@images/dejongemaker-logo.png";
 
 class About extends React.Component {
   constructor(props) {
