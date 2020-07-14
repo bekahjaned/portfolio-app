@@ -147,8 +147,9 @@ class Form extends React.Component {
             onChange={this.handleChange}
             placeholder="Enter your name..."
             noValidate
+            length={formErrors.name.length}
+            error={formErrors.name}
           />
-          {formErrors.name.length > 0 && <span>{formErrors.name}</span>}
 
           <InputItem
             htmlFor="email"
@@ -159,8 +160,9 @@ class Form extends React.Component {
             onChange={this.handleChange}
             placeholder="Enter your email..."
             noValidate
+            length={formErrors.email.length}
+            error={formErrors.email}
           />
-          {formErrors.email.length > 0 && <span>{formErrors.email}</span>}
 
           <MessageInput
             htmlFor="message"
@@ -172,8 +174,9 @@ class Form extends React.Component {
             onChange={this.handleChange}
             placeholder="Enter your message"
             noValidate
+            length={formErrors.message.length}
+            error={formErrors.message}
           />
-          {formErrors.message.length > 0 && <span>{formErrors.message}</span>}
 
           <SubmitButton label="Submit" type="submit" />
         </form>
