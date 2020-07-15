@@ -17,6 +17,7 @@ class MessageInput extends React.Component {
           onChange={this.props.onChange}
           placeholder={this.props.placeholder}
         />
+        {this.props.length > 0 && <span>{this.props.error}</span>}
       </div>
     );
   }

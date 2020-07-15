@@ -17,6 +17,7 @@ class InputItem extends React.Component {
           placeholder={this.props.placeholder}
           required
         />
+        {this.props.length > 0 && <span>{this.props.error}</span>}
       </div>
     );
   }

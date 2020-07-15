@@ -4,7 +4,27 @@ import InputItem from "@Components/InputItem";
 import MessageInput from "@Components/MessageInput";
 import SubmitButton from "@Components/SubmitButton";
 
-import Axios from "axios";
+import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+
+const emailRegex = RegExp(
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+);
+
+const formValid = ({ formErrors, ...rest }) => {
+  let valid = true;
+
+  Object.values(formErrors).forEach((val) => {
+    val.length > 0 && (valid = false);
+  });
+
+  Object.values(rest).forEach((val) => {
+    val === "" && (valid = false);
+  });
+
+  return valid;
+};
 
 class Form extends React.Component {
   constructor(props) {
@@ -13,77 +33,122 @@ class Form extends React.Component {
       name: "",
       email: "",
       message: "",
-      sent: false,
+      formErrors: {
+        name: "",
+        email: "",
+        message: "",
+      },
     };
   }
 
-  handleName = (e) => {
-    this.setState({
-      name: e.target.value,
+  toastifySuccess() {
+    toast.success("Form sent!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
     });
-  };
+  }
 
-  handleEmail = (e) => {
-    this.setState({
-      email: e.target.value,
+  toastifyFail() {
+    toast.error("Form failed to send! Did you fill out all the fields?", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
     });
-  };
+  }
 
-  handleMessage = (e) => {
-    this.setState({
-      message: e.target.value,
-    });
-  };
-
-  formSubmit = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
-    let data = {
-      name: this.state.name,
-      email: this.state.email,
-      message: this.state.message,
-    };
+    if (formValid(this.state)) {
+      const { name, email, message } = this.state;
 
-    Axios.post("/api/forma", data)
-      .then((res) => {
-        this.setState(
-          {
-            sent: true,
-          },
-          this.resetForm()
-        );
-      })
-      .catch(() => {
-        console.log("Message not sent");
-      });
+      let templateParams = {
+        name: name,
+        email: email,
+        message: message,
+      };
+
+      emailjs.send(
+        "gmail",
+        "portfolio_contact",
+        templateParams,
+        "user_uFBt7OJSbpoxTLb0kocyH"
+      );
+
+      console.log(`
+      ---SUBMITTING---
+      Name: ${name}
+      Email: ${email}
+      Message: ${message}
+      `);
+
+      this.toastifySuccess();
+      this.resetForm();
+    } else {
+      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+      this.toastifyFail();
+    }
   };
 
-  resetForm = () => {
+  resetForm() {
     this.setState({
       name: "",
       email: "",
       message: "",
     });
+  }
 
-    setTimeout(() => {
-      this.setState({
-        sent: false,
-      });
-    }, 3000);
+  handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    let formErrors = { ...this.state.formErrors };
+
+    switch (name) {
+      case "name":
+        formErrors.name = value.length < 1 ? "Please enter your name." : "";
+        break;
+      case "email":
+        formErrors.email = emailRegex.test(value)
+          ? ""
+          : "Please enter a valid email.";
+        break;
+      case "message":
+        formErrors.message = value.length < 1 ? "Please enter a message." : "";
+        break;
+      default:
+        break;
+    }
+
+    this.setState({
+      formErrors,
+      [name]: value,
+    });
   };
 
   render() {
+    const { formErrors } = this.state;
+
     return (
       <div>
-        <form onSubmit={this.formSubmit}>
+        <form onSubmit={this.handleSubmit} noValidate>
           <InputItem
             htmlFor="name"
             label="Name"
             type="text"
             name="name"
             value={this.state.name}
-            onChange={this.handleName.bind(this)}
+            onChange={this.handleChange}
             placeholder="Enter your name..."
+            noValidate
+            length={formErrors.name.length}
+            error={formErrors.name}
           />
 
           <InputItem
@@ -92,8 +157,11 @@ class Form extends React.Component {
             type="email"
             name="email"
             value={this.state.email}
-            onChange={this.handleEmail.bind(this)}
+            onChange={this.handleChange}
             placeholder="Enter your email..."
+            noValidate
+            length={formErrors.email.length}
+            error={formErrors.email}
           />
 
           <MessageInput
@@ -103,16 +171,16 @@ class Form extends React.Component {
             value={this.state.message}
             cols="30"
             rows="5"
-            onChange={this.handleMessage.bind(this)}
+            onChange={this.handleChange}
             placeholder="Enter your message"
+            noValidate
+            length={formErrors.message.length}
+            error={formErrors.message}
           />
 
-          <div className={this.state.sent ? "msg msgAppear" : "msg"}>
-            Message has been sent
-          </div>
-
-          <SubmitButton label="Submit" />
+          <SubmitButton label="Submit" type="submit" />
         </form>
+        <ToastContainer />
       </div>
     );
   }
