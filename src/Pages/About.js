@@ -18,7 +18,9 @@ class About extends React.Component {
       <div className="container">
         <Hero text={this.state.heroText} />
         <div className="about">
+
           <img src={Logo} alt="logo" />
+
           <div className="aboutText">
             <h3>My name is Rebekah</h3>
             <p>I'm a graphic designer and lifetime crafter!</p>
