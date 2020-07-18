@@ -1,5 +1,7 @@
 // Styles
 
+@import "./hover";
+
 $width: 250px;
 $roundedBorder: 10px;
 
@@ -28,6 +30,7 @@ $roundedBorder: 10px;
   margin-right: 8%;
   text-decoration: none;
   color: black;
+  // include grow here
 }
 
 .headerContainer {
