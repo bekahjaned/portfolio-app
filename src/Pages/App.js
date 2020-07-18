@@ -6,7 +6,8 @@ import Work from "../Pages/Work";
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 
-import Logo from "../images/dejongemaker-logo.png";
+
+import Logo from "@images/dejongemaker-logo.png";
 
 function App() {
   return (
