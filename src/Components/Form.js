@@ -1,8 +1,8 @@
 import React from "react";
 
-import InputItem from "@Components/InputItem";
-import MessageInput from "@Components/MessageInput";
-import SubmitButton from "@Components/SubmitButton";
+import InputItem from "../Components/InputItem";
+import MessageInput from "../Components/MessageInput";
+import SubmitButton from "../Components/SubmitButton";
 
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";

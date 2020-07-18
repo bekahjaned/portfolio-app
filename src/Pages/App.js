@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Header from "@Components/Header";
-import Work from "@Pages/Work";
-import About from "@Pages/About";
-import Contact from "@Pages/Contact";
+import Header from "../Components/Header";
+import Work from "../Pages/Work";
+import About from "../Pages/About";
+import Contact from "../Pages/Contact";
 
-import Logo from "@images/dejongemaker-logo.png";
+import Logo from "../images/dejongemaker-logo.png";
 
 function App() {
   return (

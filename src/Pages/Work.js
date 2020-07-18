@@ -1,29 +1,29 @@
 import React from "react";
 
-import Banner from "@Components/Banner";
-import ArtCard from "@Components/ArtCard";
+import Banner from "../Components/Banner";
+import ArtCard from "../Components/ArtCard";
 
-import ImageBanner from "@images/websitebanner.png";
+import ImageBanner from "../images/websitebanner.png";
 
-import Sushi from "@images/fastfood.jpg";
-import Bear from "@images/bear-in-lake.jpg";
-import Cake from "@images/birthday-cake.jpg";
-import Compass from "@images/compass.jpg";
-import Cube from "@images/fidget-cube.gif";
-import Cat from "@images/gato.jpg";
-import IceCream from "@images/icecream.jpg";
-import Keyboard from "@images/keyboard.jpg";
-import Knife from "@images/knife.jpg";
-import Mango from "@images/mango.jpg";
-import Map from "@images/map.jpg";
-import Microphone from "@images/microphone.jpg";
-import Mug from "@images/mug.jpg";
-import Otter from "@images/otter.png";
-import PolyCat from "@images/PolyCat.jpg";
-import Pool from "@images/pool.jpg";
-import Pozuelo from "@images/Pozuelo2.jpg";
-import Ukelele from "@images/ukelele.jpg";
-import Tuvok from "@images/Tuvok2.jpg";
+import Sushi from "../images/fastfood.jpg";
+import Bear from "../images/bear-in-lake.jpg";
+import Cake from "../images/birthday-cake.jpg";
+import Compass from "../images/compass.jpg";
+import Cube from "../images/fidget-cube.gif";
+import Cat from "../images/gato.jpg";
+import IceCream from "../images/icecream.jpg";
+import Keyboard from "../images/keyboard.jpg";
+import Knife from "../images/knife.jpg";
+import Mango from "../images/mango.jpg";
+import Map from "../images/map.jpg";
+import Microphone from "../images/microphone.jpg";
+import Mug from "../images/mug.jpg";
+import Otter from "../images/otter.png";
+import PolyCat from "../images/PolyCat.jpg";
+import Pool from "../images/pool.jpg";
+import Pozuelo from "../images/Pozuelo2.jpg";
+import Ukelele from "../images/ukelele.jpg";
+import Tuvok from "../images/Tuvok2.jpg";
 
 class Work extends React.Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from "react";
 
-import Hero from "@Components/Hero";
-import Form from "@Components/Form";
+import Hero from "../Components/Hero";
+import Form from "../Components/Form";
 
 class Contact extends React.Component {
   constructor(props) {
