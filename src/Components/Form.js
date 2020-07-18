@@ -1,13 +1,12 @@
 import React from "react";
 
+import InputItem from "../Components/InputItem";
+import MessageInput from "../Components/MessageInput";
+import SubmitButton from "../Components/SubmitButton";
 
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-
-import InputItem from "../Components/InputItem";
-import MessageInput from "../Components/MessageInput";
-import SubmitButton from "../Components/SubmitButton";
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
