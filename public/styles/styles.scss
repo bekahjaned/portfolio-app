@@ -1,7 +1,5 @@
 // Styles
 
-@import "./hover";
-
 $width: 250px;
 $roundedBorder: 10px;
 
@@ -26,11 +24,25 @@ $roundedBorder: 10px;
 
 .link {
   font-family: "Rubik", sans-serif;
+  display: inline-block;
   font-weight: 400;
   margin-right: 8%;
   text-decoration: none;
   color: black;
-  // include grow here
+}
+
+.hover::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: width 0.3s;
+}
+
+.hover:hover::after {
+  width: 100%;
+  transition: width 0.3s;
 }
 
 .headerContainer {

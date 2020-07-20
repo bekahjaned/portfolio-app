@@ -17,10 +17,27 @@
 
 .link {
   font-family: "Rubik", sans-serif;
+  display: inline-block;
   font-weight: 400;
   margin-right: 8%;
   text-decoration: none;
   color: black;
+}
+
+.hover::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: black;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
+}
+
+.hover:hover::after {
+  width: 100%;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
 }
 
 .headerContainer {

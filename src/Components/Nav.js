@@ -7,20 +7,23 @@ class Nav extends React.Component {
     return (
       <nav>
         <ul className="nav-links">
-          <Link className="link" to="/">
+          <Link className="link hover" to="/">
             <li>Work</li>
           </Link>
-          <Link className="link" to="/about">
+          <Link className="link hover" to="/about">
             <li>About</li>
           </Link>
-          <Link className="link" to="/contact">
+          <Link className="link hover" to="/contact">
             <li>Contact</li>
           </Link>
-          <a className="link" href="https://www.behance.net/rebekahdejong">
+          <a
+            className="link hover"
+            href="https://www.behance.net/rebekahdejong"
+          >
             <BehanceOutlined />
           </a>
           <a
-            className="link"
+            className="link hover"
             href="https://www.instagram.com/de.jonge.maker/?hl=en"
           >
             <InstagramOutlined />
